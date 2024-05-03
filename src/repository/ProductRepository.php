@@ -52,14 +52,14 @@ class ProductRepository
         $preparedStatement->bindValue(':name', $product->getName(), PDO::PARAM_STR);
         $preparedStatement->bindValue(':description', $product->getDescription(), PDO::PARAM_STR);
         $preparedStatement->bindValue(':image', $product->getImageFileName(), PDO::PARAM_STR);
-        $preparedStatement->bindValue(':price', $product->getPrice(), PDO::PARAM_INT);
+        $preparedStatement->bindValue(':price', $product->getPrice(), PDO::PARAM_STR);
 
         $preparedStatement->execute();
     }
 
     public function findProductById(int $id): Product
     {
-    
+
         $query = 'SELECT * FROM ' . self::PRODUCTS_TABLE_NAME . ' WHERE id = :id';
         $preparedStatement = $this->conn->prepare($query);
         $preparedStatement->bindValue(':id', $id);
@@ -73,12 +73,12 @@ class ProductRepository
     {
         $query = 'UPDATE ' . self::PRODUCTS_TABLE_NAME . ' SET type = :type, name = :name, description = :description, image = :image, price = :price WHERE id = :id;';
         $preparedStatement = $this->conn->prepare($query);
-        $preparedStatement->bindValue(':type', $product->getType());
-        $preparedStatement->bindValue(':name', $product->getName());
-        $preparedStatement->bindValue(':description', $product->getDescription());
-        $preparedStatement->bindValue(':image', $product->getImageFileName());
-        $preparedStatement->bindValue(':price', $product->getPrice());
-        $preparedStatement->bindValue(':id', $product->getId());
+        $preparedStatement->bindValue(':type', $product->getType(), PDO::PARAM_STR);
+        $preparedStatement->bindValue(':name', $product->getName(), PDO::PARAM_STR);
+        $preparedStatement->bindValue(':description', $product->getDescription(), PDO::PARAM_STR);
+        $preparedStatement->bindValue(':image', $product->getImageFileName(), PDO::PARAM_STR);
+        $preparedStatement->bindValue(':price', $product->getPrice(), PDO::PARAM_STR);
+        $preparedStatement->bindValue(':id', $product->getId(), PDO::PARAM_INT);
 
         $preparedStatement->execute();
     }

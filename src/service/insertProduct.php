@@ -7,6 +7,7 @@ $pdo = new Connection();
 $conn = $pdo->getConnection();
 $repository = new ProductRepository($conn);
 
+
 $productToInsert = new Product(
     null,
     $_POST['type'],
