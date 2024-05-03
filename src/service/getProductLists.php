@@ -1,7 +1,7 @@
 <?php
 
 require(__DIR__ . '/Connection.php');
-require(__DIR__  . '/../repository/ProductRepository.php');
+require(__DIR__ . '/../repository/ProductRepository.php');
 
 $pdo = new Connection();
 $conn = $pdo->getConnection();

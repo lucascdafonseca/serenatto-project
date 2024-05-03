@@ -40,7 +40,7 @@ require(__DIR__  . '/src/service/getProductLists.php');
                         </div>
                         <p><?= $cafe->getName() ?></p>
                         <p><?= $cafe->getDescription() ?></p>
-                        <p><?= $cafe->getFormattedPrice() ?></p>
+                        <p>R$ <?= $cafe->getFormattedPrice() ?></p>
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -58,7 +58,7 @@ require(__DIR__  . '/src/service/getProductLists.php');
                         </div>
                         <p><?= $almoco->getName() ?></p>
                         <p><?= $almoco->getDescription() ?></p>
-                        <p><?= $almoco->getFormattedPrice() ?></p>
+                        <p>R$ <?= $almoco->getFormattedPrice() ?></p>
                     </div>
                 <?php endforeach ?>
             </div>

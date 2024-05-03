@@ -9,7 +9,7 @@ class Product
     private string $imageFileName;
     private float $price;
 
-    public function __construct(?int $id, string $type, string $name, string $description, string $imageFileName, float $price)
+    public function __construct(?int $id, string $type, string $name, string $description, float $price, string $imageFileName = "logo-serenatto.png")
     {
         $this->id = $id;
         $this->type = $type;
@@ -19,12 +19,12 @@ class Product
         $this->price = $price;
     }
 
-    public function getId() : int
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function setId(int $id) : void
+    public function setId(int $id): void
     {
         $this->id = $id;
     }
@@ -81,7 +81,7 @@ class Product
 
     public function getFormattedPrice(): string
     {
-        return 'R$ ' . number_format($this->getPrice(), 2);
+        return number_format($this->getPrice(), 2);
     }
 
     public function getFixedImageFileName(): string

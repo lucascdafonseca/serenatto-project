@@ -43,14 +43,14 @@ require(__DIR__  . '/src/service/getProductLists.php');
         <tbody>
           <?php foreach ($resultList as $product) : ?>
             <tr>
-              <td><?= $product->getName() ?></td>
-              <td><?= $product->getType() ?></td>
-              <td><?= $product->getDescription() ?></td>
-              <td><?= $product->getFormattedPrice() ?></td>
-              <td><a class="botao-editar" href="editar-produto.html">Editar</a></td>
+              <td><?= $product->getName(); ?></td>
+              <td><?= $product->getType(); ?></td>
+              <td><?= $product->getDescription(); ?></td>
+              <td>R$ <?= $product->getFormattedPrice(); ?></td>
+              <td><a class="botao-editar" href="editar-produto.php?id=<?= $product->getId(); ?>">Editar</a></td>
               <td>
                 <form action="src/service/deleteProduct.php" method="post">
-                  <input type="hidden" name="id" value=<?= $product->getId() ?>>
+                  <input type="hidden" name="id" value=<?= $product->getId(); ?>>
                   <input type="submit" class="botao-excluir" value="Excluir">
                 </form>
               </td>
@@ -58,7 +58,7 @@ require(__DIR__  . '/src/service/getProductLists.php');
           <?php endforeach; ?>
         </tbody>
       </table>
-      <a class="botao-cadastrar" href="cadastrar-produto.html">Cadastrar produto</a>
+      <a class="botao-cadastrar" href="cadastrar-produto.php">Cadastrar produto</a>
       <form action="#" method="post">
         <input type="submit" class="botao-cadastrar" value="Baixar Relatório" />
       </form>

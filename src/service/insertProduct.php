@@ -7,6 +7,14 @@ $pdo = new Connection();
 $conn = $pdo->getConnection();
 $repository = new ProductRepository($conn);
 
-$repository->deleteProduct($_POST['id']);
+$productToInsert = new Product(
+    null,
+    $_POST['type'],
+    $_POST['name'],
+    $_POST['description'],
+    $_POST['price']
+);
+
+$repository->insertProduct($productToInsert);
 
 header('Location: ../../admin.php');
