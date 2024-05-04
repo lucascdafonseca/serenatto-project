@@ -12,9 +12,9 @@ if (isset($_GET['id'])) {
     $productToUpdate = $repository->findProductById($id);
 }
 
-if (isset($_GET['idToUpdate'])) {
+if (isset($_POST['id'])) {
     $productToUpdate = new Product(
-        $_GET['idToUpdate'],
+        $_POST['id'],
         $_POST['type'],
         $_POST['name'],
         $_POST['description'],
