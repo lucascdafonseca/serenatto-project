@@ -60,7 +60,6 @@ require(__DIR__  . '/src/service/getProductLists.php');
       </table>
       <a class="botao-cadastrar" href="cadastrar-produto.php">Cadastrar produto</a>
       <form action="src/service/pdf-generation.php" method="post">
-        <input type="hidden" name="resultList" value="<?php echo htmlentities(serialize($resultList)); ?>">
         <input type="submit" class="botao-cadastrar" value="Baixar Relatório" />
       </form>
     </section>
