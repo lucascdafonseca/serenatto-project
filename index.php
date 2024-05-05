@@ -28,10 +28,12 @@ require(__DIR__  . '/src/service/getProductLists.php');
         </section>
         <h2>Cardápio Digital</h2>
         <section class="container-cafe-manha">
-            <div class="container-cafe-manha-titulo">
-                <h3>Opções para o Café</h3>
-                <img class="ornaments" src="img/ornaments-coffee.png" alt="ornaments">
-            </div>
+            <?php if (sizeof($typeCafe) > 0) : ?>
+                <div class="container-cafe-manha-titulo">
+                    <h3>Opções para o Café</h3>
+                    <img class="ornaments" src="img/ornaments-coffee.png" alt="ornaments">
+                </div>
+            <?php endif ?>
             <div class="container-cafe-manha-produtos">
                 <?php foreach ($typeCafe as $cafe) : ?>
                     <div class="container-produto">
@@ -46,10 +48,12 @@ require(__DIR__  . '/src/service/getProductLists.php');
             </div>
         </section>
         <section class="container-almoco">
-            <div class="container-almoco-titulo">
-                <h3>Opções para o Almoço</h3>
-                <img class="ornaments" src="img/ornaments-coffee.png" alt="ornaments">
-            </div>
+            <?php if (sizeof($typeAlmoco) > 0) : ?>
+                <div class="container-almoco-titulo">
+                    <h3>Opções para o Almoço</h3>
+                    <img class="ornaments" src="img/ornaments-coffee.png" alt="ornaments">
+                </div>
+            <?php endif ?>
             <div class="container-almoco-produtos">
                 <?php foreach ($typeAlmoco as $almoco) : ?>
                     <div class="container-produto">

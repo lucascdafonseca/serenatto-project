@@ -28,7 +28,7 @@ require(__DIR__ . '/src/service/updateProduct.php');
       <img class="ornaments" src="img/ornaments-coffee.png" alt="ornaments">
     </section>
     <section class="container-form">
-      <form action="src/service/updateProduct.php" method="post">
+      <form action="src/service/updateProduct.php" method="post" enctype="multipart/form-data">
       <input type="hidden" name="id" value="<?= $productToUpdate->getId() ?>">
         <label for="nome">Nome</label>
         <input type="text" id="nome" name="name" value=<?= $productToUpdate->getName(); ?> required>

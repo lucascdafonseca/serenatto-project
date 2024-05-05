@@ -71,6 +71,7 @@ class ProductRepository
 
     public function updateProduct(Product $product)
     {
+
         $query = 'UPDATE ' . self::PRODUCTS_TABLE_NAME . ' SET type = :type, name = :name, description = :description, image = :image, price = :price WHERE id = :id;';
         $preparedStatement = $this->conn->prepare($query);
         $preparedStatement->bindValue(':type', $product->getType(), PDO::PARAM_STR);

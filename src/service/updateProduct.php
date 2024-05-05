@@ -18,9 +18,13 @@ if (isset($_POST['id'])) {
         $_POST['type'],
         $_POST['name'],
         $_POST['description'],
-        $_POST['price'],
-        $_POST['image']
+        $_POST['price']
     );
+
+    if ($_FILES['image']['size'] > 0) {
+        $productToUpdate->setImageFileName(uniqid() . $_FILES['image']['name']);
+        $result = move_uploaded_file($_FILES['image']['tmp_name'], '../../' . $productToUpdate->getFixedImageFileName());
+    }
 
     $repository->updateProduct($productToUpdate);
 

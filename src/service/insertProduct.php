@@ -7,7 +7,6 @@ $pdo = new Connection();
 $conn = $pdo->getConnection();
 $repository = new ProductRepository($conn);
 
-
 $productToInsert = new Product(
     null,
     $_POST['type'],
@@ -15,6 +14,12 @@ $productToInsert = new Product(
     $_POST['description'],
     $_POST['price']
 );
+
+
+if ($_FILES['image']['size'] > 0) {
+    $productToInsert->setImageFileName(uniqid() . $_FILES['image']['name']);
+    $result = move_uploaded_file($_FILES['image']['tmp_name'], '../../' . $productToInsert->getFixedImageFileName());
+}
 
 $repository->insertProduct($productToInsert);
 
